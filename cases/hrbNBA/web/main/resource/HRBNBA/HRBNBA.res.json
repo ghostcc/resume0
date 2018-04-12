@@ -1,0 +1,1 @@
+{"resources":[{"name":"HRBNBA_F2xSSIMGData0","url":"resource/HRBNBA/F2xSSIMG0.json?v=11","type":"sheet"},{"name":"HRBNBA_GameRoot","url":"src/HRBNBA/GameRoot.js?v=11","type":"js"}],"groups":[{"name":"HRBNBA","keys":"HRBNBA_F2xSSIMGData0,HRBNBA_GameRoot"}]}

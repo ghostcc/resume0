@@ -1,0 +1,1 @@
+{"resources":[{"name":"loading_f2x_auto_img0","url":"resource/loading/f2x_auto_img0.png?v=13","type":"image"},{"name":"loading_F2xSSIMGData0","url":"resource/loading/F2xSSIMG0.json?v=13","type":"sheet"},{"name":"loading_Loading","url":"src/loading/Loading.js?v=13","type":"js"}],"groups":[{"name":"loading","keys":"loading_f2x_auto_img0,loading_F2xSSIMGData0,loading_Loading"}]}

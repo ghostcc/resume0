@@ -1,0 +1,257 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>NBA中国赛2017</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <meta http-equiv="x-ua-compatible" content="IE=edge"/>
+    <!-- uc强制竖屏 -->
+    <meta name="screen-orientation" content="portrait">
+    <!-- QQ强制竖屏 -->
+    <meta name="x5-orientation" content="portrait">
+    <!-- UC强制全屏 -->
+    <meta name="full-screen" content="yes">
+    <!-- QQ强制全屏 -->
+    <meta name="x5-fullscreen" content="true">
+
+    <meta name="viewport" content="width=640,user-scalable=no">
+    <script>
+        var phoneWidth = parseInt(window.screen.width);
+        var phoneScale = (phoneWidth / 640);
+        var viewport = document.querySelector("meta[name=viewport]");
+        if (isWeixin()) {
+            viewport.setAttribute('content', 'width=640, initial-scale = ' + phoneScale + ', minimum-scale = ' + phoneScale + ', maximum-scale = ' + phoneScale + ', target-densitydpi=device-dpi,user-scalable=no');
+        } else {
+            viewport.setAttribute('content', 'width=640,user-scalable=no');
+            window.setTimeout(function () {
+                viewport.setAttribute('content', 'width=640,user-scalable=no');
+            }, 1000);
+        }
+        function isWeixin() {
+            var ua = navigator.userAgent.toLowerCase();
+            if (ua.match(/MicroMessenger/i) == "micromessenger") {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    </script>
+    <style>
+        html, body {
+            -ms-touch-action: none;
+            background: #ececec;
+            padding: 0;
+            border: 0;
+            margin: 0;
+            height: 100%;
+        }
+
+        body {
+            background: #ececec;
+        }
+
+        .layer640 {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 640px;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .displayNone {
+            display: none;
+        }
+    </style>
+
+    <script egret="lib" src="libs/egret_flash2x_tweenmax.js"></script>
+    <script egret="lib" src="libs/jquery/jquery-2.2.3.min.js"></script>
+    <!--这个标签会被替换为项目中所有的 javascript 文件。删除 game_files 标签后，项目文件加载列表将不会变化，请谨慎操作！-->
+    <!--game_files_start-->
+	<script src="main.min.js"></script>
+	<!--game_files_end-->
+</head>
+<body>
+<div class="mainWrapper layer640">
+    <div class="egret layer640">
+        <div style="margin: auto;width: 100%;height: 100%;line-height:0;font-size:0"
+             class="egret-player"
+             data-entry-class="Main"
+             data-orientation="auto"
+             data-scale-mode="fixWidth"
+             data-frame-rate="30"
+             data-content-width="640"
+             data-content-height="1044"
+             data-show-paint-rect="false"
+             data-multi-fingered="2"
+             data-show-fps="false"
+             data-show-log="false"
+             data-log-filter=""
+             data-show-fps-style="x:0,y:0,size:30,textColor:0xE7E7E7,bgAlpha:0.9">
+        </div>
+    </div>
+    <div class="qrCode layer640 displayNone">
+        <div class="layer640" style="background: #daecf8;opacity: 0.95"></div>
+        <img style="position: absolute;top:305px;right: 165px" src="resource/img/qrcode.png"/>
+        <img class="close" style="position:absolute;top:50px;right:50px;" src="resource/img/close.png"/>
+    </div>
+    <div class="winner layer640 displayNone">
+        <img class="layer640" style="" src="resource/img/winner.jpg"/>
+        <img class="close" style="position:absolute;top:50px;right:50px;" src="resource/img/close.png"/>
+    </div>
+    <div class="share layer640 displayNone">
+        <div class="layer640" style="background: black;opacity: 0.8"></div>
+        <img style="position: absolute;top:5px;right: 5px" src="resource/img/share.png"/>
+    </div>
+    <div class="soundb displayNone">
+        <audio class="bksound" src="resource/sound/bk.mp3" preload loop></audio>
+        <audio class="kaiche" src="resource/sound/kaiche.mp3" preload></audio>
+        <audio class="kaichemeng" src="resource/sound/kaichemeng.mp3" preload></audio>
+        <audio class="tap" src="resource/sound/tap.mp3" preload></audio>
+        <audio class="xiangzi" src="resource/sound/xiangzi.mp3" preload></audio>
+        <audio class="jian" src="resource/sound/jian.mp3" preload></audio>
+    </div>
+
+</div>
+<script>
+    $(function(){
+        function resizeTip(){
+            var isportrait = false;
+            if (window.orientation!=undefined) {
+                function checkOrient() {
+                    if (window.orientation == 0 || window.orientation == 180){
+                        var screenOrientation = 'portrait';
+                    }
+                    else if (window.orientation == 90 || window.orientation == -90){
+                        var screenOrientation = 'landscape';
+                    }
+                    return screenOrientation;
+                }
+                isportrait = checkOrient() == "portrait"
+            } else {
+                isportrait = window.innerHeight > window.innerWidth;
+            }
+            if(!isportrait){
+                alert('锁定竖屏效果更好！');
+            }
+        }
+        $(window).resize(resizeTip).on('orientationchange', resizeTip);
+
+        egret.runEgret()
+    })
+</script>
+<script>
+    document.write('<script type="text/javascript" src="//res.wx.qq.com/open/js/jweixin-1.0.0.js"><\/script>');
+</script>
+
+<script>
+    //
+    (function () {
+        var isShareReady = false;
+
+        var url = "https://" + location.host + '/';
+
+        var amObj = {
+            title: "牛（N）掰(B)啊（A），拼手速就能抢NBA中国赛2017门票",
+            desc: "手慢无！NBA中国赛2017门票，加入我一起抢！",
+            link: location.href,// _mz_wx_shareUrl(url),
+            imgUrl: url + "2017nba/resource/img/feed.jpg",
+
+            success: function () {
+                //_smq.push(['custom', ' RET_wechat', 'ShareAppMessage', 'success']);
+                ga('send', 'event', 'share', 'share-to-Wechat', 'Share_to_friends ');
+            },
+            cancel: function () {
+                //_smq.push(['custom', ' RET_wechat', 'ShareAppMessage', 'cancel']);
+            }
+        };
+
+        console.log("img" + url + "2017nba/resource/img/feed.jpg");
+
+        var tlObj = {
+            title:  "牛（N）掰(B)啊（A），拼手速就能抢NBA中国赛2017门票",
+            desc: "手慢无！NBA中国赛2017门票，加入我一起抢！",
+            link: location.href,// _mz_wx_shareUrl(url),
+            imgUrl: url + "2017nba/resource/img/feed.jpg",
+            success: function () {
+                //_smq.push(['custom', ' RET_wechat', 'ShareTimeline', 'success']);
+                ga('send', 'event', 'share', 'share-to-Wechat', 'Share_to_Moment');
+            },
+            cancel: function () {
+                //_smq.push(['custom', ' RET_wechat', 'ShareTimeline', 'cancel']);
+            }
+        };
+
+        if (wx) {
+            wx.ready(function () {
+                // alert(amObj.imgUrl);
+                wx.onMenuShareAppMessage(amObj);
+                wx.onMenuShareTimeline(tlObj);
+            });
+
+            wx.error(function (res) {
+                alert("验证未成功")
+            });
+        }
+
+        function getwxshareconfig() {
+            $.ajax({
+                //colgatekids.im20.com.cn
+                url: location.host.indexOf('harbin-beer.com.cn') == -1 ?
+                        '//wx.im20.com.cn/WxApi/getSignPackage' :
+                        "//www.harbin-beer.com.cn/2017nba/Harbinbeer2017NBA/getSignPackage",
+                type: "GET",
+                dataType: 'jsonp',
+                jsonp: 'imCallback',
+                success: function (json) {
+                    /**
+                     *
+                     {"errorcode":0,"errordesc":"","errorspecific":"","data":
+                     {"appId":"wx1341c3ea22003343",
+                     "nonceStr":"LHNaKNK6sRY8n3eU",
+                     "timestamp":1504767718,"url":null,"signature":"93af01f27c36def7b97018ba417eed4ff8a485ad","rawString":"jsapi_ticket=bxLdikRXVbTPdHSM05e5u_hnpjoNCH1IYWvMpck9At_i03SSRlJ7wyxXiaxpzZX_Cu9yad9f-chdJCFlno0-MA&noncestr=LHNaKNK6sRY8n3eU×tamp=1504767718&url="}}
+
+                     * @type {{debug: boolean, jsApiList: string[]}}
+                     */
+                    // alert(json);
+                    var config = {
+                        debug: false,
+                        jsApiList: ['onMenuShareAppMessage', 'onMenuShareTimeline', 'hideOptionMenu'],
+                        // jsApiList: ['hideMenuItems','hideOptionMenu']
+                    };
+                    config.appId = json.data.appId;
+                    config.timestamp = json.data.timestamp;
+                    config.nonceStr = json.data.nonceStr;
+                    config.signature = json.data.signature;
+                    config.rawString = json.data.rawString;
+                    wx.config(config);
+                }
+            });
+        }
+
+        getwxshareconfig();
+
+        window.setWxShare = function (title, desc, imgUrl, link) {
+            amObj.title = tlObj.title = title;
+            amObj.desc = tlObj.desc = desc;
+            amObj.link = tlObj.link = link;
+            amObj.imgUrl = tlObj.imgUrl = imgUrl;
+        }
+    })();
+</script>
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-53387679-32', 'auto');
+    ga('send', 'pageview');
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1 @@
+{"resources":[{"name":"regedit_f2x_auto_img0","url":"resource/regedit/f2x_auto_img0.jpg?v=19","type":"image"},{"name":"regedit_F2xSSIMGData0","url":"resource/regedit/F2xSSIMG0.json?v=19","type":"sheet"},{"name":"regedit_Regedit","url":"src/regedit/Regedit.js?v=19","type":"js"}],"groups":[{"name":"regedit","keys":"regedit_f2x_auto_img0,regedit_F2xSSIMGData0,regedit_Regedit"}]}

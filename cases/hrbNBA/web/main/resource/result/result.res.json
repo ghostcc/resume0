@@ -1,0 +1,1 @@
+{"resources":[{"name":"result_F2xSSIMGData0","url":"resource/result/F2xSSIMG0.json?v=10","type":"sheet"},{"name":"result_Result","url":"src/result/Result.js?v=10","type":"js"}],"groups":[{"name":"result","keys":"result_F2xSSIMGData0,result_Result"}]}

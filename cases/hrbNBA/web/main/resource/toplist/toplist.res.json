@@ -1,0 +1,1 @@
+{"resources":[{"name":"toplist_f2x_auto_img5","url":"resource/toplist/f2x_auto_img5.jpg?v=13","type":"image"},{"name":"toplist_F2xSSIMGData0","url":"resource/toplist/F2xSSIMG0.json?v=13","type":"sheet"},{"name":"toplist_Toplist","url":"src/toplist/Toplist.js?v=13","type":"js"}],"groups":[{"name":"toplist","keys":"toplist_f2x_auto_img5,toplist_F2xSSIMGData0,toplist_Toplist"}]}
