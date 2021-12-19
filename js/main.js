@@ -817,7 +817,7 @@ $(function () {
         });
         //
         if (!finded) {
-            gotoPage(0);
+            gotoPage(2);
         }
     }
 

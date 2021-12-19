@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" $__rem="true">
+<head>
+    <title>毛铺新年小猪酷跑</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,user-scalable=no">
+    <script src="libs/lib.js?v=fffff"></script>
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0px;
+            border: 0px;
+            overflow: hidden;
+            position: absolute;
+            background-color: #000;
+        }
+    </style>
+
+    <script>
+        window.DAdaption = (function () {
+            var html = document.getElementsByTagName('html');
+            var obj = {};
+            if (html[0].getAttribute('$__rem')) {
+                function resize() {
+                    html[0].style.cssText = 'font-size:' + window.innerWidth / 640 * 40 + 'px';
+                    //执行计时对象集合
+                    for (var i in obj) {
+                        obj[i]();
+                    }
+                    console.log(obj);
+                };
+                resize();
+                window.addEventListener("resize", resize, false);
+            }
+            return {
+                add: function (o, callback) {
+                    obj[o] = callback;
+                    obj[o]();
+                }
+            }
+        })();
+
+
+        // 处理ios输入框选择框兼容性
+       // if(os.ios){
+            $("input,select").blur(function(){
+                setTimeout(() => {
+                    var scrollHeight = document.documentElement.scrollTop || document.body.scrollTop || 0;
+                    window.scrollTo(0, Math.max(scrollHeight - 1, 0));
+                }, 100);
+            })
+       // }//end if
+
+        document.addEventListener("focusout",function (e) {
+            document.body.scrollTop=0;
+        })
+    </script>
+</head>
+<body>
+<div id="annieEngine" style="line-height:0;font-size:0;"></div>
+<div class="shareImg" style="position: absolute;top:0;left: 0;width: 100%;height: 100%;display: none;">
+    <img class="share" src="" style="width: 100%">
+    <div class="backBtn" style="position: absolute;top: 21rem;left: 3rem;width: 10rem;">
+        <img src="resource/btn.png" style="width: 100%">
+    </div>
+</div>
+<div class="loading" style="position: absolute;top:0;left: 0;width: 100%;height: 100%;">
+    <div style="position: absolute;top: 28%;left: 5.5rem;width: 5rem;">
+        <img src="resource/loading.png" style="width: 100%">
+        <div class="num"
+             style="width: 5rem;text-align: center;font-size: 1.0rem;color: #FFF">0%</div>
+    </div>
+</div>
+<script src="libs/utils.js"></script>
+<audio class="bksound" src="resource/bk.mp3" loop preload></audio>
+<audio class="boom" src="resource/boom.mp3"  preload></audio>
+<audio class="score" src="resource/score.mp3"  preload></audio>
+
+<script src="src/f2xMain.min.js?v=1549856769974?v=152"></script>
+
+<script src="//res.wx.qq.com/open/js/jweixin-1.2.0.js?ssss"></script>
+<script type="text/javascript" src="libs/weixin/weixin.js?v=123"></script>
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?57977ee0402db4921239d45d7077210f";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+</body>
+</html>
